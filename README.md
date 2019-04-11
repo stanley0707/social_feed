@@ -45,4 +45,30 @@ python3.6
  - 
  - python manage.py runserver 0.0.0.0:8080
  - 
- - Для отображения своей стены необходимо авторизовать сеюя в админке (VkUser)
+ - Для отображения своей стены необходимо авторизовать сеюя в админке VkUser
+ - 
+ 
+
+```
+    // пример обращения к api axios
+    
+    axios.get(this.baseUrl, { params: {
+          "part": this.part,
+          "page": this.page++,
+    }})
+    .then(response => {
+        this.info = response.data;
+         console.log(response.data)
+    })
+    .catch(error => {
+        console.log(error);
+        this.errored = true;
+    })
+    .finally(() => (this.loading = false));
+    
+```
+####  url и параметры серверной пагинации
+
+```
+https://social-feed-back-stanleyws.c9users.io:8080/api/?page=<page number>&part=<number of required posts in one request>
+```
