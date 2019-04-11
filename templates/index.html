@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>social_feed_front</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="video.js"></script>
+    <script src="scroll.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+   </style>
+  </head>
+<body>
+<div id="app">
+  <h1>всего {{ info.data.msg.total }}</h1>
+
+  <section v-if="errored">
+    <p>что-то пошло не так</p>
+  </section>
+
+  <section v-else>
+    <div v-if="loading">Loading...</div>
+    
+       <div class="container">
+          <div class="row">
+            <div class="col-md-4" v-for="item in info.data">
+              <div class="brick">
+                  
+              <div v-if="item.type === 'photo'" class="coverImg">
+                    <div>
+                        <swipe-container inline-template>
+                              <div class="container">
+                                    <ul >
+                                      <img class="coverImg" :src="url" alt="" v-for="url in item.media.url"/>
+                                    </ul>
+                                </div>
+                          </swipe-container>
+                        </div>
+                  </div>
+              
+              <div v-if="item.type === 'video'" class="coverImg" > 
+                  <div class="l-page">
+                      <swipe-container inline-template>
+                           <div class="container">
+                                <ul v-for="url in item.media.url">
+                                    <li>
+                                        <div class="p-video-player" id="video-player">
+                                          <video class="p-video-player__media">
+                                            <source :src="url"/>
+                                          </video>
+                                          <div class="p-video-player__seekbar-wrap" id="video-player-media" @mousedown="grabSeekbar" @touchstart="grabSeekbar" @touchmove="moveSeekbar" @touchend="releaseSeekbar">
+                                            <div class="p-video-player__seekbar-current" :style="{ transform: &quot;scaleX(&quot; + getProgressRate + &quot;)&quot; }"></div>
+                                            <div class="p-video-player__seekbar-back"></div>
+                                          </div>
+                                          <div class="p-video-player__control-panel">
+                                            <button class="p-video-player__btn" @click="playOrPause">{{ isPlaying ? 'pause' : 'play' }}</button>
+                                            <button class="p-video-player__btn" @click="stop">stop</button>
+                                            <div class="p-video-player__time-wrap"><span class="p-video-player__time-current">{{ getCurrentTime }}</span>/<span class="p-video-player__time-all">{{ getDuration }}</span></div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                          </swipe-container>
+                      
+                    </div>
+                  <div class="l-page" v-else>
+                    <h1 class="c-content-header"v-show=".length"></h1>
+                      <div class="p-video-player" id="video-player">
+                        <video class="p-video-player__media">
+                          <source :src="item.media.url"/>
+                        </video>
+                        <div class="p-video-player__seekbar-wrap" id="video-player-media" @mousedown="grabSeekbar" @touchstart="grabSeekbar" @touchmove="moveSeekbar" @touchend="releaseSeekbar">
+                          <div class="p-video-player__seekbar-current" :style="{ transform: &quot;scaleX(&quot; + getProgressRate + &quot;)&quot; }"></div>
+                          <div class="p-video-player__seekbar-back"></div>
+                        </div>
+                        <div class="p-video-player__control-panel">
+                          <button class="p-video-player__btn" @click="playOrPause">{{ isPlaying ? 'pause' : 'play' }}</button>
+                          <button class="p-video-player__btn" @click="stop">stop</button>
+                          <div class="p-video-player__time-wrap"><span class="p-video-player__time-current">{{ getCurrentTime }}</span>/<span class="p-video-player__time-all">{{ getDuration }}</span></div>
+                        </div>
+                      </div>
+                    </div>
+                                    
+                </div>
+                <div class="caption">
+                  <h4>{{ item.type }}</h4>
+                  <p>{{ item.title }}</p>
+                  <div class="caption-lower">
+                    <div class="tag"><a href="#">{{item.tag}}</a>
+                      <div class="views">
+                        <div class="fa fa-eye"> </div><span>{{item.date}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+          <button v-on:click="getPosts()"> ЕЩЁ </button>
+    </div>
+<script>
+"use strict";
+
+new Vue({ 
+  el: '#app',
+   data () {
+     return {
+       info: null,
+       loading: true,
+       errored: false,
+       page: 1,
+       part: 7,
+       baseUrl: 'https://social-feed-back-stanleyws.c9users.io:8080/api/',
+      
+     };
+  },
+  
+  methods: {
+    getPosts() {
+      console.log('dfw')
+      
+      axios.get(this.baseUrl, { params: {
+          "part": this.part,
+          "page": this.page++,
+      }})
+        .then(response => {
+          this.info = response.data;
+          console.log(response.data)
+      })
+      .catch(error => {
+          console.log(error);
+          this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+    }, 
+  }
+
+       
+});
+</script>
+</body>
+</html>

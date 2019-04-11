@@ -1,0 +1,138 @@
+body, html {
+  width: 100%;
+  height: 100vh;
+  font-family: "Secular One", sans-serif;
+  background-color: #f8f8f8;
+}
+
+.brick {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 20px #aaa;
+}
+.brick:hover {
+  cursor: pointer;
+  -webkit-transform: translate(1px, 1px);
+          transform: translate(1px, 1px);
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  box-shadow: 0px 0px 10px #ccc;
+}
+.brick .coverImg img {
+  width: 100%;
+}
+.brick .remark {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  background-color: #435b71;
+  color: #fff;
+  border-radius: 50%;
+}
+.brick .remark .fa {
+  font-size: 22px;
+  padding: 10px;
+}
+.brick .caption {
+  padding: 12px;
+  color: #435b71;
+}
+.brick .caption h4 {
+  font-weight: 600;
+}
+.brick .caption p {
+  font-weight: 100;
+  height: 20vh;
+}
+.brick .caption .caption-lower {
+  border-top: 1px solid #ccc;
+  padding-top: 12px;
+  font-size: 13px;
+}
+.brick .caption .caption-lower .tag a {
+  color: #aaa;
+  padding-right: 6px;
+}
+.brick .caption .caption-lower .tag .views {
+  float: right;
+  font-weight: 600;
+}
+.brick .caption .caption-lower .tag .views .fa {
+  padding-right: 6px;
+  font-size: 16px;
+}
+
+.l-page {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.c-content-header {
+  margin-top: 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.p-video-player__media {
+  width: 100%;
+  display: block;
+}
+.p-video-player__seekbar-wrap {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+.p-video-player__seekbar-current, .p-video-player__seekbar-back {
+  height: 3px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  left: 0;
+}
+.p-video-player__seekbar-current {
+  z-index: 2;
+  background-color: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.p-video-player__seekbar-back {
+  background-color: #ddd;
+}
+.p-video-player__control-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.p-video-player__btn {
+  width: 5em;
+  margin-right: 2px;
+  padding: 0.5em 0;
+}
+.p-video-player__time-wrap {
+  margin-left: 1em;
+}
+.p-video-player__time-current {
+  margin-right: 0.25em;
+}
+.p-video-player__time-all {
+  margin-left: 0.25em;
+}
+
+.container {
+  overflow: scroll;
+}
+.container ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+.container li {
+  flex: 0 0 auto;
+}
