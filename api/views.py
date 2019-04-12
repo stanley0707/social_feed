@@ -37,7 +37,7 @@ import json
 from django.http import JsonResponse
 from django.views import View
 from .models import VkUser, Post, Media # LoadSession
-from django.core import serializers
+from django.shortcuts import render
 
 
 class ApiView(View):
@@ -305,6 +305,3 @@ class NewsLineView(ApiView):
             'msg' : resp_status,
         }, safe=False, json_dumps_params={'ensure_ascii':False})
 
-
-class MainView(View):
-    template_name = 'index.html'

@@ -70,5 +70,47 @@ python3.6
 ####  url и параметры серверной пагинации
 
 ```
-https://social-feed-back-stanleyws.c9users.io:8080/api/?page=<page number>&part=<number of required posts in one request>
+https://domain:8080/api/?page=<page number>&part=<number of required posts in one request>
 ```
+
+####  пример возвращаемого json
+```
+{
+    "data":[
+      { 
+        "date": "1555074301",
+        "index": "2",
+        "id": "387997",
+        "vk_id": "34827356835",
+        "text": "some text",
+        "type": "photo",
+        "media"{"url": [
+            "https://domain.com/media/image.jpg",
+            "https://domain.com/media/image.jpg",
+            "https://domain.com/media/image.jpg",
+        ]
+      },
+      { 
+        "date": "1555073421",
+        "index": "3",
+        "id": "387123",
+        "vk_id": "34827332425",
+        "text": "some text",
+        "type": "photo",
+        "media"{"url": [
+            "https://domain.com/media/image.jpg",
+            "https://domain.com/media/image.jpg",
+            "https://domain.com/media/image.jpg",
+        ]
+      },
+    ],
+    "msg":{
+        "ret": 200,
+        "status": "true",
+        "total": 75,
+    },
+}
+```
+######  data – массив c публикациями ( его длинна соответсвует параметру part в url) 
+######  msg – содержит состояние ответа
+######      totla – сумма всех записей которые можно получить

@@ -20,14 +20,14 @@ from django.urls import path, include
 from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
-from api.views import MainView
+#from api.views import MainView
 
 urlpatterns = [
     path('admin/', admin.site.urls),         
     # path("login/", views.login, name="login"),
     # path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     # path('social-auth/', include('social_django.urls', namespace="social")),
-    path("", MainView.as_view()),
+    #path("", MainView.as_view()),
     path("api/", include('api.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
