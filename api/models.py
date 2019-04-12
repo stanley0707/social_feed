@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.cache import cache
-from solo.models import SingletonModel
+#from solo.models import SingletonModel
 
 
 class SingletonModel(models.Model):
