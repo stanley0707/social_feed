@@ -1,4 +1,4 @@
-# Spocial Feed (VK API)
+# Social Feed (VK API)
 
 
 ## Getting Started
