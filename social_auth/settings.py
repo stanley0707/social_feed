@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # 'social_django',
     'api',
+    'django_extensions',
 ]
 
 # LOGIN_URL = 'login'
@@ -183,14 +184,14 @@ WSGI_APPLICATION = 'social_auth.wsgi.application'
 
 
 DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': 'user_db',
-           'USER': 'user',
-           'PASSWORD': '123qwe123qwe',
-           'HOST': 'localhost',
-           'PORT': '5432',
-       }
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'user_db',
+          'USER': 'user',
+          'PASSWORD': '123qwe123qwe',
+          'HOST': 'localhost',
+          'PORT': '5432',
+      }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

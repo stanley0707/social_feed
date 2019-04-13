@@ -66,6 +66,7 @@ class Media(models.Model):
  
 
 class Post(models.Model):
+    user = models.ForeignKey(VkUser, on_delete=models.CASCADE)
     postid = models.CharField(max_length=40, blank=True)
     date = models.CharField(max_length=20, blank=True)
     likes = models.IntegerField()

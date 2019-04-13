@@ -50,7 +50,10 @@ python3.6.3
  - 
  - python manage.py runserver 0.0.0.0:8080
 
- 
+
+## project UML
+![models](api_models.png?raw=true)
+
 
 ```
     // пример обращения к api axios
