@@ -3,9 +3,9 @@
 
 ## Getting Started
 
-- after running go in admin panel and save your vk login and password.
+- After running go to admin panel and save your "vk" login and password in Vkuser model.
 Don't worry, your confidential data don't go to any people and save
-in than database, what your create.
+in database, which you create
 
 
 
@@ -49,9 +49,7 @@ python3.6.3
  - python manage.py createsuperuser
  - 
  - python manage.py runserver 0.0.0.0:8080
- - 
- - Для отображения своей стены необходимо авторизовать сеюя в админке VkUser
- - 
+
  
 
 ```
@@ -118,4 +116,4 @@ https://domain:8080/api/?page=<page number>&part=<number of required posts in on
 ```
 ######  data – array with articles ( length this array equal to the parameter sent to "part") 
 ######  msg – contains the status of the response
-######      total – sum of all articles, wo you can tak from server
+######      total – sum of all articles, wo you can take from server
