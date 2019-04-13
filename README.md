@@ -1,11 +1,10 @@
-# Project Title
+# Spocial Feed (VK API)
 
-One Paragraph of project description goes here
 
 ## Getting Started
 
-requirements:
-python3.6
+lang:
+python3.6.3
 
 
 ### use)
