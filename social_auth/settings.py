@@ -183,6 +183,11 @@ WSGI_APPLICATION = 'social_auth.wsgi.application'
 # }
 
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
 DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql_psycopg2',
