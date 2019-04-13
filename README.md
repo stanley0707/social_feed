@@ -3,6 +3,12 @@
 
 ## Getting Started
 
+- after running go in admin panel and save your vk login and password.
+Don't worry, your confidential data don't go to any people and save
+in than database, what your create.
+
+
+
 lang:
 python3.6.3
 
@@ -66,13 +72,13 @@ python3.6.3
     .finally(() => (this.loading = false));
     
 ```
-####  url и параметры серверной пагинации
+####  url with params example
 
 ```
 https://domain:8080/api/?page=<page number>&part=<number of required posts in one request>
 ```
 
-####  пример возвращаемого json
+####  json example
 ```
 {
     "data":[
@@ -110,6 +116,6 @@ https://domain:8080/api/?page=<page number>&part=<number of required posts in on
     },
 }
 ```
-######  data – массив c публикациями ( его длинна соответсвует параметру part в url) 
-######  msg – содержит состояние ответа
-######      total – сумма всех записей которые можно получить
+######  data – array with articles ( length this array equal to the parameter sent to "part") 
+######  msg – contains the status of the response
+######      total – sum of all articles, wo you can tak from server
