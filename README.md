@@ -51,8 +51,12 @@ python3.6.3
  - python manage.py runserver 0.0.0.0:8080
 
 
-## project UML
+## project models
 ![models](api_models.png?raw=true)
+
+
+## project UMl
+![UMl](apidiagram.png?raw=true)
 
 
 ```
