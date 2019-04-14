@@ -59,6 +59,7 @@ python3.6.3
 ![UMl](apidiagram.png?raw=true)
 
 
+## vue.js example
 ```
     // пример обращения к api axios
     
